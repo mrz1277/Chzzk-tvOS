@@ -46,6 +46,56 @@ header::before {
   opacity: 0.1;
 }
 
+/* Language Switcher */
+.language-switcher {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
+
+.lang-btn {
+  background: rgba(0, 255, 163, 0.1);
+  border: 1px solid rgba(0, 255, 163, 0.3);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+  font-family: 'Inter', sans-serif;
+}
+
+.lang-btn:hover {
+  background: rgba(0, 255, 163, 0.2);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 255, 163, 0.2);
+}
+
+.lang-btn:active {
+  transform: translateY(0);
+}
+
+.lang-text {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* App Icon */
+.app-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  object-fit: contain;
+  background: transparent;
+}
+
 header h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
@@ -107,21 +157,20 @@ h2::after {
 }
 
 /* Description Section */
-#description ul {
-  list-style: none;
+#description ol {
   margin: 1.5rem 0;
+  padding-left: 1.5rem;
 }
 
 #description li {
   margin-bottom: 1rem;
-  padding-left: 1.5rem;
   position: relative;
   color: var(--text-secondary);
 }
 
 #description li::before {
-  content: '•';
   color: var(--primary-color);
+  padding-left: 1.5rem;
   position: absolute;
   left: 0;
   font-weight: bold;
@@ -200,6 +249,25 @@ figcaption {
 
   .gallery {
     grid-template-columns: 1fr;
+  }
+
+  /* Language switcher responsive adjustments */
+  .language-switcher {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .lang-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  /* App icon responsive adjustments */
+  .app-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    margin-bottom: 1rem;
   }
 }
   

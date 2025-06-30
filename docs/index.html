@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Unofficial Chzzk tvOS application</title>
+  <title>비공식 치지직 애플 티비 애플리케이션</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="An unofficial streaming client for tvOS that lets you watch your favorite channels with an optimized interface.">
+  <meta name="description" content="Unofficial Chzzk Apple TV application">
   <meta name="theme-color" content="#2D3250">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,40 +13,83 @@
 </head>
 <body>
   <header>
-    <h1>zzk</h1>
-    <p>An unofficial Chzzk client for tvOS.</p>
+    <div class="language-switcher">
+      <button id="langToggle" class="lang-btn" onclick="toggleLanguage()">
+        <span class="lang-text" data-ko="EN" data-en="한국어">EN</span>
+      </button>
+    </div>
+    <img src="icon.png" alt="치지직 아이콘" class="app-icon">
+    <h1 data-ko="지지직" data-en="zzk"></h1>
+    <p data-ko="애플 티비용 비공식 치지직 애플리케이션" data-en="An unofficial Chzzk client for tvOS"></p>
   </header>
   <main>
     <section id="description">
-      <h2>Description</h2>
-      <p>
-        Experience a new way to stream your favorite channels. This unofficial streaming client app is optimized for tvOS and designed to give you easy access to the channels you follow. Whether you're catching live streams or rewatching previous broadcasts, our intuitive interface ensures a seamless viewing experience.
+      <h2 data-ko="설치 방법" data-en="How to install"></h2>
+      <p data-ko="애플의 베타 테스트 플랫폼 TestFlight 에서 비공식 치지직앱을 설치할 수 있습니다." 
+      data-en="You can install the unofficial Chzzk app via Apple's beta testing platform called TestFlight.">
       </p>
-      <ul>
-        <li><strong>Following Channel Management:</strong> Easily view all your followed channels and receive updates on the latest streams.</li>
-        <li><strong>On-Demand Replay:</strong> Never miss a broadcast again—watch previous streams at your convenience.</li>
-        <li><strong>Optimized User Experience:</strong> Enjoy a sleek and intuitive UI designed specifically for tvOS.</li>
-      </ul>
-      <p><em>Note: This app is an unofficial client developed independently from the official streaming service. Some features may differ from the official app.</em></p>
+      <ol>
+        <li><span data-ko="macOS 또는 iOS 앱스토어에서 TestFlight 앱을 설치합니다." data-en="Install TestFlight on an iOS or iPadOS device and Apple TV where you can sign in to the same App Store account."></span></li>
+        <li><span data-ko="다음 링크에서 [View in TestFlight] 버튼을 누릅니다." data-en="Open the link and click [View in TestFlight] button."></span> <a href="https://testflight.apple.com/join/BzdKB5sR">https://testflight.apple.com/join/BzdKB5sR</a></li>
+        <li><span data-ko="앱을 확인 후 수락(Accept) 합니다." data-en="Tap Accept for the app you want to test."></span></li>
+        <li><span data-ko="애플 티비에 TestFlight 앱을 설치합니다. 반드시 이전에 수락했던 애플 계정과 애플 티비의 스토어 계정이 동일해야 합니다." data-en="Open TestFlight on Apple TV. You must be signed in to the same App Store account you used on your device."></span></li>
+        <li><span data-ko="버전을 확인 후 설치합니다." data-en="Install the app you want to test."></span></li>
+      </ol>
     </section>
 
     <section id="screenshots">
-      <h2>Screenshots</h2>
+      <h2 data-ko="스크린샷" data-en="Screenshots"></h2>
       <div class="gallery">
         <figure>
-          <img src="screenshot1.png" alt="Home Screen showing followed channels" loading="lazy">
-          <figcaption>Live Channels</figcaption>
+          <img src="screenshot1.png" alt="팔로우하는 채널을 보여주는 홈 화면" loading="lazy">
+          <figcaption data-ko="라이브 채널" data-en="Live Channels"></figcaption>
         </figure>
         <figure>
-          <img src="screenshot2.png" alt="On-Demand Replay feature" loading="lazy">
-          <figcaption>Search</figcaption>
+          <img src="screenshot2.png" alt="주문형 재방송 기능" loading="lazy">
+          <figcaption data-ko="검색" data-en="Search"></figcaption>
         </figure>
         <figure>
-          <img src="screenshot3.png" alt="Live Streaming view" loading="lazy">
-          <figcaption>Followed Channel</figcaption>
+          <img src="screenshot3.png" alt="라이브 스트리밍 화면" loading="lazy">
+          <figcaption data-ko="팔로우한 채널" data-en="Followed Channel"></figcaption>
         </figure>
       </div>
     </section>
   </main>
+
+  <script>
+    let currentLanguage = 'ko'; // Default language is Korean
+
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === 'ko' ? 'en' : 'ko';
+      updateLanguage();
+      updateButtonText();
+    }
+
+    function updateLanguage() {
+      const elements = document.querySelectorAll('[data-ko][data-en]');
+      elements.forEach(element => {
+        element.textContent = element.getAttribute(`data-${currentLanguage}`);
+      });
+      
+      // Update document title
+      const title = currentLanguage === 'ko' ? '비공식 치지직 애플 티비 애플리케이션' : 'Unofficial Chzzk tvOS application';
+      document.title = title;
+      
+      // Update html lang attribute
+      document.documentElement.lang = currentLanguage;
+    }
+
+    function updateButtonText() {
+      const button = document.getElementById('langToggle');
+      const langText = button.querySelector('.lang-text');
+      langText.textContent = currentLanguage === 'ko' ? 'EN' : '한국어';
+    }
+
+    // Initialize language on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      updateLanguage();
+      updateButtonText();
+    });
+  </script>
 </body>
 </html>
