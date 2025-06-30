@@ -14,11 +14,10 @@ An unofficial Chzzk client for tvOS
 
 You can install the unofficial Chzzk app via Apple's beta testing platform called TestFlight.
 
-1. Install TestFlight on an iOS or iPadOS device and Apple TV where you can sign in to the same App Store account.
-2. Open the link and click [View in TestFlight] button: [https://testflight.apple.com/join/BzdKB5sR](https://testflight.apple.com/join/BzdKB5sR)
-3. Tap Accept for the app you want to test.
-4. Open TestFlight on Apple TV. You must be signed in to the same App Store account you used on your device.
-5. Install the app you want to test.
+1. Install TestFlight on Apple TV.
+1. Install TestFlight on an iOS or macOS device. The Apple ID you use must be the same as the one you use on Apple TV.
+1. https://testflight.apple.com/join/BzdKB5sR Open the link on your iOS or macOS device. It will automatically open the TestFlight app and you can accept the invitation.
+1. Open TestFlight on Apple TV and install the app.
 
 ## Screenshots
 
